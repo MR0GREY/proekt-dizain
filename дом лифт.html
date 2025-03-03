@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анимация лифта</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .building {
+            position: relative;
+            display: inline-block;
+            background: url('foto/house.jpg') no-repeat center;
+            width: 400px; /* Подгони под размер своего изображения */
+            height: 600px;
+            background-size: cover;
+        }
+        .elevator {
+            position: absolute;
+            width: 80px; /* Размер лифта подгоняй под шахту */
+            height: 100px;
+            background: gray;
+            left: 160px; /* Центрируем лифт в шахте */
+            bottom: 0;
+            transition: bottom 3s linear;
+        }
+    </style>
+</head>
+<body>
+    <h2>Анимация лифта</h2>
+    <div class="building">
+        <div class="elevator" id="lift"></div>
+    </div>
+    <br>
+    <button onclick="moveLift()">Поднять лифт</button>
+
+    <script>
+        let up = true;
+        function moveLift() {
+            let lift = document.getElementById("lift");
+            if (up) {
+                lift.style.bottom = "500px"; // Высота шахты (настраивай)
+            } else {
+                lift.style.bottom = "0px";
+            }
+            up = !up;
+        }
+    </script>
+</body>
+</html>
